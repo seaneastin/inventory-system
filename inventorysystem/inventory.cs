@@ -10,12 +10,10 @@ namespace inventorysystem
     {
         int damage = 10;
         float gold = 0.00f;
-        bool equippedweapon = false; //tells game if weapon is equipped may be removed
         string weaponequipped = "0"; //tells game what weapon is equipped
         int maxweight = 100;
         int weaponweight = 0;
         int armorweight = 0;
-        bool armorequipped = false; //tells the game if armor is equiipped
         string equippedarmor = "0"; //tells game whatarmor is equipped
         bool overweight = false; //tells the game if player is over the weight limit
         //0 = unarmed
@@ -97,21 +95,18 @@ namespace inventorysystem
                 Console.WriteLine(" you equipped a dagger");
                 damage = 20;
                 Console.WriteLine("Damage: " + damage);
-                equippedweapon = true; //will not be used later will try to check in other ways
             }
             else if (weaponequipped == "2")
             {
                 Console.WriteLine(" you equipped a sword");
                 damage = 20;
                 Console.WriteLine("Damage: " + damage);
-                equippedweapon = true; //will not be used later will try to check in other ways
             }
             else if (weaponequipped == "3")
             {
                 Console.WriteLine(" you equipped a warhammer");
                 damage = 20;
                 Console.WriteLine("Damage: " + damage);
-                equippedweapon = true; //will not be used later will try to check in other ways
             }
             else if (weaponequipped == "4")
             {
@@ -171,20 +166,58 @@ namespace inventorysystem
         }
         public void Armormenu()
         {
-            Console.WriteLine("test");
+            /*armor values
+            0 = no armor
+            1 = armor
+            2 = heavy armor
+            */
+            Console.WriteLine("choosearmor");
+            Console.WriteLine("0: no armor"); // removes armor
+            Console.WriteLine("1: armor"); //
+            Console.WriteLine("2: heavy armor"); //
+            Console.WriteLine("3: go back");
+            Console.ReadLine();
+            if (equippedarmor == "0")
+            {
+                armoruneqip();
+            }
+            if (equippedarmor == "1")
+            {
+
+            }
+            if (equippedarmor == "2")
+            {
+
+            }
+            if (equippedarmor == "3")
+            {
+
+            }
+
         }
         public void shopmenu()
         {
-            Console.WriteLine("WIP");
+            Console.WriteLine("What do you want to buy");
+            Console.WriteLine("0: potions");
+            Console.WriteLine("1: go back");
         }
-       /* public void weightcheck()
+        public void armoruneqip()
         {
-            if (weight >= maxweight)
-            {
-                Console.WriteLine("you are over the max weight");
-                return;
-            } 
-        } */
+            Console.WriteLine("unequiping armor");
+            armorweight = 0;
+        }
+        /* public void weightcheck()
+         {
+             if (weight >= maxweight)
+             {
+                 Console.WriteLine("you are over the max weight");
+                 return;
+             } 
+         } */
+        public void buy()
+        {
+
+        }
 
 
     }
