@@ -13,9 +13,11 @@ namespace inventorysystem
         bool equippedweapon = false; //tells game if weapon is equipped may be removed
         string weaponequipped = "0"; //tells game what weapon is equipped
         int maxweight = 100;
-        int weight = 0;
+        int weaponweight = 0;
+        int armorweight = 0;
         bool armorequipped = false; //tells the game if armor is equiipped
         string equippedarmor = "0"; //tells game whatarmor is equipped
+        bool overweight = false; //tells the game if player is over the weight limit
         //0 = unarmed
         public void Menu()
         {
@@ -30,7 +32,9 @@ namespace inventorysystem
                 Console.WriteLine("2: add gold");
                 Console.WriteLine("3: subtract gold");
                 Console.WriteLine("4: equip Armor");
-                //Console.WriteLine("5:Cheats"); possible feature
+                Console.WriteLine("5: shopmenu");
+                //Console.WriteLine("6:Cheats"); possible feature
+
 
 
 
@@ -57,24 +61,28 @@ namespace inventorysystem
                 }
                 else if (choice == "4")
                 {
-
+                    Armormenu();
+                }
+                else if (choice == "5")
+                {
+                    shopmenu();
                 }
             }
         }
 
         public void equipWeapon()
         {
-      /*      if (equippedweapon == true)
-            {
-                Console.WriteLine("you already have a weapon equipped");
-                return;
-            }  may delete as you can only equip one weapon
-            /*weapons to be added
-             * 0. unarmed
-             * 1. dagger
-             * 2. sword
-             * 3. warhammer
-             * 4. greatsword*/
+            /*      if (equippedweapon == true)
+                  {
+                      Console.WriteLine("you already have a weapon equipped");
+                      return;
+                  }  may delete as you can only equip one weapon
+                  /*weapons to be added
+                   * 0. unarmed
+                   * 1. dagger
+                   * 2. sword
+                   * 3. warhammer
+                   * 4. greatsword*/
             Console.WriteLine("choose a weapon");
             Console.WriteLine("0: unarmed");
             Console.WriteLine("1: Dagger");
@@ -85,6 +93,7 @@ namespace inventorysystem
             weaponequipped = Console.ReadLine();
             if (weaponequipped == "1")
             {
+                overweight = true;
                 Console.WriteLine(" you equipped a dagger");
                 damage = 20;
                 Console.WriteLine("Damage: " + damage);
@@ -127,11 +136,11 @@ namespace inventorysystem
 
         public void unequipWeapon() //this is used for weapon 0 unarmed
         {
-          /*  if (equippedweapon == false)
-            {
-                Console.WriteLine("you dont have a weapon equipped");
-                return;
-            } */
+            /*  if (equippedweapon == false)
+              {
+                  Console.WriteLine("you dont have a weapon equipped");
+                  return;
+              } */
             Console.WriteLine("you are now unarmed");
             damage = 10;
             Console.WriteLine("Damage: " + damage);
@@ -160,6 +169,23 @@ namespace inventorysystem
                 gold = 0;
             }
         }
+        public void Armormenu()
+        {
+            Console.WriteLine("test");
+        }
+        public void shopmenu()
+        {
+            Console.WriteLine("WIP");
+        }
+       /* public void weightcheck()
+        {
+            if (weight >= maxweight)
+            {
+                Console.WriteLine("you are over the max weight");
+                return;
+            } 
+        } */
+
 
     }
 }
