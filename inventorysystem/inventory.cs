@@ -10,13 +10,15 @@ namespace inventorysystem
     {
         int damage = 10;
         float gold = 0.00f;
-        string weaponequipped = "0"; //tells game what weapon is equipped
+        string weaponequipped = "0"; //tells game what weapon is equipped          0 = unarmed
         int maxweight = 100;
         int weaponweight = 0;
         int armorweight = 0;
         string equippedarmor = "0"; //tells game whatarmor is equipped
+        string itemchoose = "0" //items
+        //0 means no armor equipped
         bool overweight = false; //tells the game if player is over the weight limit
-        //0 = unarmed
+ 
         public void Menu()
         {
             string choice = "";
@@ -190,6 +192,11 @@ namespace inventorysystem
             Console.WriteLine("What do you want to buy");
             Console.WriteLine("0: potions");
             Console.WriteLine("1: go back");
+            Console.ReadKey();
+            if (itemchoose == 0)
+            {
+                buy("potions",10,)
+            }
         }
         public void armoruneqip()
         {
@@ -204,8 +211,12 @@ namespace inventorysystem
                  return;
              } 
          } */
-        public void buy()
+        public void buy(int itemname, int basecost, int cost)
         {
+            int amount = 0;
+            Console.WriteLine(itemname + " costs" + basecost + "how much do you want");
+            amount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("do you want to buy" + itemname + "for" + amount);
 
         }
 
