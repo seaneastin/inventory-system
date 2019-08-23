@@ -14,6 +14,8 @@ namespace inventorysystem
         string weaponequipped = "0"; //tells game what weapon is equipped
         int maxweight = 100;
         int weight = 0;
+        bool armorequipped = false; //tells the game if armor is equiipped
+        string equippedarmor = "0"; //tells game whatarmor is equipped
         //0 = unarmed
         public void Menu()
         {
@@ -27,6 +29,9 @@ namespace inventorysystem
                 Console.WriteLine("1: Equip Weapon");
                 Console.WriteLine("2: add gold");
                 Console.WriteLine("3: subtract gold");
+                Console.WriteLine("4: equip Armor");
+                //Console.WriteLine("5:Cheats"); possible feature
+
 
 
 
@@ -120,7 +125,7 @@ namespace inventorysystem
               equippedweapon = true; */
         }
 
-        public void unequipWeapon()
+        public void unequipWeapon() //this is used for weapon 0 unarmed
         {
           /*  if (equippedweapon == false)
             {
@@ -137,6 +142,7 @@ namespace inventorysystem
         {
             Console.WriteLine("Got " + amount + " Gold!");
             gold += amount;
+            goldmincheck();
             Console.WriteLine("Gold: " + gold);
         }
 
@@ -144,11 +150,15 @@ namespace inventorysystem
         {
             Console.WriteLine("lost " + amount + " Gold!");
             gold -= amount;
+            goldmincheck();
+            Console.WriteLine("Gold: " + gold);
+        }
+        public void goldmincheck()
+        {
             if (gold <= 0)
             {
                 gold = 0;
             }
-            Console.WriteLine("Gold: " + gold);
         }
 
     }
