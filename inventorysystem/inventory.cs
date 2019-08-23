@@ -25,9 +25,8 @@ namespace inventorysystem
                 Console.WriteLine("\nMenu");
                 Console.WriteLine("0: Exit");
                 Console.WriteLine("1: Equip Weapon");
-                Console.WriteLine("2: Unequip Weapon");
-                Console.WriteLine("3: add gold");
-                Console.WriteLine("4: subtract gold");
+                Console.WriteLine("2: add gold");
+                Console.WriteLine("3: subtract gold");
 
 
 
@@ -40,22 +39,18 @@ namespace inventorysystem
                 }
                 else if (choice == "2")
                 {
-                    unequipWeapon();
-                }
-                else if (choice == "3")
-                {
                     Console.Write("How much gold? ");
 
                     float Goldadd = Convert.ToSingle(Console.ReadLine());
                     AddGold(Goldadd);
                 }
-                else if (choice == "4")
+                else if (choice == "3")
                 {
                     Console.Write("How much gold? ");
                     float Goldsubtract = Convert.ToSingle(Console.ReadLine());
                     subtractGold(Goldsubtract);
                 }
-                else if (choice == "6")
+                else if (choice == "4")
                 {
 
                 }
@@ -64,11 +59,11 @@ namespace inventorysystem
 
         public void equipWeapon()
         {
-            if (equippedweapon == true)
+      /*      if (equippedweapon == true)
             {
                 Console.WriteLine("you already have a weapon equipped");
                 return;
-            }
+            }  may delete as you can only equip one weapon
             /*weapons to be added
              * 0. unarmed
              * 1. dagger
@@ -76,7 +71,7 @@ namespace inventorysystem
              * 3. warhammer
              * 4. greatsword*/
             Console.WriteLine("choose a weapon");
-            /*Console.WriteLine("0: unarmed"); */
+            Console.WriteLine("0: unarmed");
             Console.WriteLine("1: Dagger");
             Console.WriteLine("2: sword");
             Console.WriteLine("3: warhammer");
@@ -111,6 +106,10 @@ namespace inventorysystem
                 Console.WriteLine("Damage: " + damage);
                 equippedweapon = true; //will not be used later will try to check in other ways
             }
+            else if (weaponequipped == "0")
+            {
+                unequipWeapon(); //reuses old code from unequip weapon option
+            }
 
 
 
@@ -123,12 +122,12 @@ namespace inventorysystem
 
         public void unequipWeapon()
         {
-            if (equippedweapon == false)
+          /*  if (equippedweapon == false)
             {
                 Console.WriteLine("you dont have a weapon equipped");
                 return;
-            }
-            Console.WriteLine("unequipped a weapon!");
+            } */
+            Console.WriteLine("you are now unarmed");
             damage = 10;
             Console.WriteLine("Damage: " + damage);
             equippedweapon = false;
