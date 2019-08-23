@@ -12,6 +12,8 @@ namespace inventorysystem
         float gold = 0.00f;
         bool equippedweapon = false; //tells game if weapon is equipped may be removed
         string weaponequipped = "0"; //tells game what weapon is equipped
+        int maxweight = 100;
+        int weight = 0;
         //0 = unarmed
         public void Menu()
         {
@@ -62,6 +64,11 @@ namespace inventorysystem
 
         public void equipWeapon()
         {
+            if (equippedweapon == true)
+            {
+                Console.WriteLine("you already have a weapon equipped");
+                return;
+            }
             /*weapons to be added
              * 0. unarmed
              * 1. dagger
@@ -76,13 +83,7 @@ namespace inventorysystem
             Console.WriteLine("4: greatsword");
             Console.WriteLine("5: go back");
             weaponequipped = Console.ReadLine();
-            if (equippedweapon == true)
-            {
-                Console.WriteLine("you already have a weapon equipped");
-                return;
-            }
-
-            else if (weaponequipped == "1")
+            if (weaponequipped == "1")
             {
                 Console.WriteLine(" you equipped a dagger");
                 damage = 20;
@@ -130,7 +131,7 @@ namespace inventorysystem
             Console.WriteLine("unequipped a weapon!");
             damage = 10;
             Console.WriteLine("Damage: " + damage);
-            equippedweapon = true;
+            equippedweapon = false;
         }
 
         public void AddGold(float amount)
