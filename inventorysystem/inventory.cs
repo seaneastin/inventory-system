@@ -68,31 +68,56 @@ namespace inventorysystem
              * 2. sword
              * 3. warhammer
              * 4. greatsword*/
-
-            if (equippedweapon == true)
-            {
-                Console.WriteLine("you already have a weapon equipped");
-                return;
-            }
             Console.WriteLine("choose a weapon");
-            Console.WriteLine("0: unarmed");
+            /*Console.WriteLine("0: unarmed"); */
             Console.WriteLine("1: Dagger");
             Console.WriteLine("2: sword");
             Console.WriteLine("3: warhammer");
             Console.WriteLine("4: greatsword");
             Console.WriteLine("5: go back");
             weaponequipped = Console.ReadLine();
-            if (weaponequipped == "0")
+            if (equippedweapon == true)
             {
+                Console.WriteLine("you already have a weapon equipped");
+                return;
+            }
 
+            else if (weaponequipped == "1")
+            {
+                Console.WriteLine(" you equipped a dagger");
+                damage = 20;
+                Console.WriteLine("Damage: " + damage);
+                equippedweapon = true; //will not be used later will try to check in other ways
+            }
+            else if (weaponequipped == "2")
+            {
+                Console.WriteLine(" you equipped a sword");
+                damage = 20;
+                Console.WriteLine("Damage: " + damage);
+                equippedweapon = true; //will not be used later will try to check in other ways
+            }
+            else if (weaponequipped == "3")
+            {
+                Console.WriteLine(" you equipped a warhammer");
+                damage = 20;
+                Console.WriteLine("Damage: " + damage);
+                equippedweapon = true; //will not be used later will try to check in other ways
+            }
+            else if (weaponequipped == "4")
+            {
+                Console.WriteLine(" you equipped a GreatSword");
+                damage = 20;
+                Console.WriteLine("Damage: " + damage);
+                equippedweapon = true; //will not be used later will try to check in other ways
             }
 
 
 
-          /*      Console.WriteLine("Equipped a weapon!");
-            damage = 25;
-            Console.WriteLine("Damage: " + damage);
-            equippedweapon = true; */
+
+            /*      Console.WriteLine("Equipped a weapon!");
+              damage = 25;
+              Console.WriteLine("Damage: " + damage);
+              equippedweapon = true; */
         }
 
         public void unequipWeapon()
@@ -105,6 +130,7 @@ namespace inventorysystem
             Console.WriteLine("unequipped a weapon!");
             damage = 10;
             Console.WriteLine("Damage: " + damage);
+            equippedweapon = true;
         }
 
         public void AddGold(float amount)
