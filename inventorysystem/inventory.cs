@@ -113,7 +113,6 @@ namespace inventorysystem
                 Console.WriteLine(" you equipped a GreatSword");
                 damage = 20;
                 Console.WriteLine("Damage: " + damage);
-                equippedweapon = true; //will not be used later will try to check in other ways
             }
             else if (weaponequipped == "0")
             {
@@ -123,23 +122,14 @@ namespace inventorysystem
 
 
 
-            /*      Console.WriteLine("Equipped a weapon!");
-              damage = 25;
-              Console.WriteLine("Damage: " + damage);
-              equippedweapon = true; */
+
         }
 
         public void unequipWeapon() //this is used for weapon 0 unarmed
         {
-            /*  if (equippedweapon == false)
-              {
-                  Console.WriteLine("you dont have a weapon equipped");
-                  return;
-              } */
             Console.WriteLine("you are now unarmed");
             damage = 10;
             Console.WriteLine("Damage: " + damage);
-            equippedweapon = false;
         }
 
         public void AddGold(float amount)
