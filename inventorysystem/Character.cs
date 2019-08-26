@@ -40,6 +40,8 @@ namespace inventorysystem
             Console.WriteLine("Dexterity: " + _dexterity);
             Console.WriteLine("Wisdom: " + _wisdom);
             Console.WriteLine("strength: " + _strength);
+            Console.WriteLine("Combat Damage: " + (_strength + inventory.GetItemDamage()));
+
 
         }
         public void OpenInventory()

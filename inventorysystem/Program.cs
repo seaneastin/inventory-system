@@ -15,7 +15,7 @@ namespace inventorysystem
             string name = "";
             string choice = "";
             Console.WriteLine("Enter name of party member 1:");
-            string nane = Console.ReadLine();
+            name = Console.ReadLine();
 
 
             while (choice != "1" && choice != "2" )
@@ -42,20 +42,34 @@ namespace inventorysystem
             }
 
             player.Print();
-            player.OpenInventory();
+
             Console.WriteLine(player.Name());
             Console.ReadLine();
             Wizard dylan = new Wizard("dylan");
             Character Sarah = new Character("Sarah");
             dylan.Print();
-
-            while (choice != "1" && choice != "2")
+            choice = "";
+            while (choice != "0")
             {
                 //displays menu
                 Console.WriteLine("\nWhoose inventory:");
                 Console.WriteLine("1: " + player.Name());
-                Console.WriteLine("2: " + player.Name());
+                Console.WriteLine("2: " + dylan.Name());
+                Console.WriteLine("3: " + Sarah.Name());
                 choice = Console.ReadLine();
+                if (choice == "1")
+                {
+                    player.OpenInventory();
+                }
+                if (choice == "2")
+                {
+                    dylan.OpenInventory();
+                }
+                if (choice == "3")
+                {
+                    Sarah.OpenInventory();
+                }
+
 
             }
 

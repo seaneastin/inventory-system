@@ -8,16 +8,28 @@ namespace inventorysystem
 {
     class Inventory
     {
-        int damage = 10;
-        float gold = 0.00f;
-        string weaponequipped = "0"; //tells game what weapon is equipped          0 = unarmed
-        int maxweight = 100;
-        int weaponweight = 0;
-        int armorweight = 0;
-        string equippedarmor = "0"; //tells game whatarmor is equipped
-        string itemchoose = "0"; //items
+        private int _itemdamage = 10;
+        private float _gold = 0.00f;
+        private string _weaponequipped = "0"; //tells game what weapon is equipped          0 = unarmed
+        private int _maxweight = 100;
+        private int _weaponweight = 0;
+        private int _armorweight = 0;
+        private string _equippedarmor = "0"; //tells game whatarmor is equipped
+        private string _itemchoose = "0"; //items
+        private int _itemDefense = 20;
         //0 means no armor equipped
         bool overweight = false; //tells the game if player is over the weight limit
+
+        //returns the damage our weapon deals
+        public int GetItemDamage()
+        {
+            return _itemdamage;
+        }
+        //returns the defense our armor grants
+        public int GetItemDefense()
+        {
+            return _itemDefense;
+        }
  
         public void Menu()
         {
@@ -90,33 +102,24 @@ namespace inventorysystem
             Console.WriteLine("3: warhammer");
             Console.WriteLine("4: greatsword");
             Console.WriteLine("5: go back");
-            weaponequipped = Console.ReadLine();
-            if (weaponequipped == "1")
+            _weaponequipped = Console.ReadLine();
+            if (_weaponequipped == "1")
             {
-                overweight = true;
-                Console.WriteLine(" you equipped a dagger");
-                damage = 20;
-                Console.WriteLine("Damage: " + damage);
+                weaponequip("Dagger", 20);
             }
-            else if (weaponequipped == "2")
+            else if (_weaponequipped == "2")
             {
-                Console.WriteLine(" you equipped a sword");
-                damage = 20;
-                Console.WriteLine("Damage: " + damage);
+                weaponequip("Sword", 40);
             }
-            else if (weaponequipped == "3")
+            else if (_weaponequipped == "3")
             {
-                Console.WriteLine(" you equipped a warhammer");
-                damage = 20;
-                Console.WriteLine("Damage: " + damage);
+                weaponequip("Warhammer", 50);
             }
-            else if (weaponequipped == "4")
+            else if (_weaponequipped == "4")
             {
-                Console.WriteLine(" you equipped a GreatSword");
-                damage = 20;
-                Console.WriteLine("Damage: " + damage);
+                weaponequip("GreatSword", 60);
             }
-            else if (weaponequipped == "0")
+            else if (_weaponequipped == "0")
             {
                 unequipWeapon(); //reuses old code from unequip weapon option
             }
@@ -127,33 +130,42 @@ namespace inventorysystem
 
         }
 
+        public void weaponequip(string weaponname, int damage)
+        {
+            overweight = true;
+            Console.WriteLine(" you equipped a " + weaponname);
+            _itemdamage = damage;
+            Console.WriteLine("Damage: " + _itemdamage);
+        }
+
+
         public void unequipWeapon() //this is used for weapon 0 unarmed
         {
             Console.WriteLine("you are now unarmed");
-            damage = 10;
-            Console.WriteLine("Damage: " + damage);
+            _itemdamage = 10;
+            Console.WriteLine("Damage: " + _itemdamage);
         }
 
         public void AddGold(float amount)
         {
             Console.WriteLine("Got " + amount + " Gold!");
-            gold += amount;
+            _gold += amount;
             goldmincheck();
-            Console.WriteLine("Gold: " + gold);
+            Console.WriteLine("Gold: " + _gold);
         }
 
         public void subtractGold(float amount)
         {
             Console.WriteLine("lost " + amount + " Gold!");
-            gold -= amount;
+            _gold -= amount;
             goldmincheck();
-            Console.WriteLine("Gold: " + gold);
+            Console.WriteLine("Gold: " + _gold);
         }
         public void goldmincheck()
         {
-            if (gold <= 0)
+            if (_gold <= 0)
             {
-                gold = 0;
+                _gold = 0;
             }
         }
         public void Armormenu()
@@ -169,19 +181,19 @@ namespace inventorysystem
             Console.WriteLine("2: heavy armor"); //
             Console.WriteLine("3: go back");
             Console.ReadLine();
-            if (equippedarmor == "0")
+            if (_equippedarmor == "0")
             {
                 armoruneqip();
             }
-            if (equippedarmor == "1")
+            if (_equippedarmor == "1")
             {
 
             }
-            if (equippedarmor == "2")
+            if (_equippedarmor == "2")
             {
 
             }
-            if (equippedarmor == "3")
+            if (_equippedarmor == "3")
             {
 
             }
@@ -192,8 +204,8 @@ namespace inventorysystem
             Console.WriteLine("What do you want to buy");
             Console.WriteLine("0: potions");
             Console.WriteLine("1: go back");
-            itemchoose = Console.ReadLine();
-            if (itemchoose == "0")
+            _itemchoose = Console.ReadLine();
+            if (_itemchoose == "0")
             {
                 buy("potions", 10);
             }
@@ -201,7 +213,7 @@ namespace inventorysystem
         public void armoruneqip()
         {
             Console.WriteLine("unequiping armor");
-            armorweight = 0;
+            _armorweight = 0;
         }
         /* public void weightcheck()
          {
@@ -225,12 +237,12 @@ namespace inventorysystem
             buy = Console.ReadLine();
             if (buy == "1")
             {
-                if (gold >= cost)
+                if (_gold >= cost)
                 {
-                    gold = gold - cost;
-                    Console.WriteLine("You now have " + gold + " gold");
+                    _gold = _gold - cost;
+                    Console.WriteLine("You now have " + _gold + " gold");
                 } 
-                else if (gold < cost)
+                else if (_gold < cost)
                 {
                     Console.WriteLine("you dont have enough gold");
                     return;
@@ -241,6 +253,7 @@ namespace inventorysystem
             {
 
             }
+            
         }
 
 
