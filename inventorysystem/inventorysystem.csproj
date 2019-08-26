@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attackitem.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="Defenseitem.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

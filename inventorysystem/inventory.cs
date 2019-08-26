@@ -17,6 +17,39 @@ namespace inventorysystem
         private string _equippedarmor = "0"; //tells game whatarmor is equipped
         private string _itemchoose = "0"; //items
         private int _itemDefense = 20;
+        private int[] weaponDamage = { 20, 40, 50, 60 }; //this array lists all the damage values for weapons
+                                                         /* if (_weaponequipped == "1")
+                                                  {
+                                                      weaponequip("Dagger", 20);
+                                                  }
+                                                  else if (_weaponequipped == "2")
+                                                  {
+                                                      weaponequip("Sword", 40);
+                                                  }
+                                                  else if (_weaponequipped == "3")
+                                                  {
+                                                      weaponequip("Warhammer", 50);
+                                                  }
+                                                  else if (_weaponequipped == "4")
+                                                  {
+                                                      weaponequip("GreatSword", 60);
+                                                  }
+                                                  else if (_weaponequipped == "0")
+                                                  {
+                                                      unequipWeapon(); //reuses old code from unequip weapon option
+                                                  } */
+        private attackitem mastersword = new attackitem("Master Sword", 999, 0);
+        private attackitem dagger = new attackitem("Dagger", 20, 3);
+        private attackitem sword = new attackitem("Sword", 40, 10);
+        private attackitem warhammer = new attackitem("Warhammer", 50, 30);
+        private attackitem greatsword = new attackitem("GreatSword", 60, 50);
+
+        private attackitem[] weapons = new attackitem[3];
+        public Inventory()
+        {
+            attackitem[] weaponBag = { sword, mastersword, dagger, sword, warhammer, greatsword};
+            weapons = weaponBag;
+        }
         //0 means no armor equipped
         bool overweight = false; //tells the game if player is over the weight limit
 
@@ -103,7 +136,7 @@ namespace inventorysystem
             Console.WriteLine("4: greatsword");
             Console.WriteLine("5: go back");
             _weaponequipped = Console.ReadLine();
-            if (_weaponequipped == "1")
+           /* if (_weaponequipped == "1")
             {
                 weaponequip("Dagger", 20);
             }
@@ -122,7 +155,7 @@ namespace inventorysystem
             else if (_weaponequipped == "0")
             {
                 unequipWeapon(); //reuses old code from unequip weapon option
-            }
+            } */
 
 
 
