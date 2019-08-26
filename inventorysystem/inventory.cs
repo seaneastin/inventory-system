@@ -15,7 +15,7 @@ namespace inventorysystem
         int weaponweight = 0;
         int armorweight = 0;
         string equippedarmor = "0"; //tells game whatarmor is equipped
-        string itemchoose = "0" //items
+        string itemchoose = "0"; //items
         //0 means no armor equipped
         bool overweight = false; //tells the game if player is over the weight limit
  
@@ -192,10 +192,10 @@ namespace inventorysystem
             Console.WriteLine("What do you want to buy");
             Console.WriteLine("0: potions");
             Console.WriteLine("1: go back");
-            Console.ReadKey();
-            if (itemchoose == 0)
+            itemchoose = Console.ReadLine();
+            if (itemchoose == "0")
             {
-                buy("potions",10,)
+                buy("potions", 10);
             }
         }
         public void armoruneqip()
@@ -211,13 +211,36 @@ namespace inventorysystem
                  return;
              } 
          } */
-        public void buy(int itemname, int basecost, int cost)
+        public void buy(string itemname, int basecost)
         {
+            int cost = 0;
             int amount = 0;
-            Console.WriteLine(itemname + " costs" + basecost + "how much do you want");
+            string buy = "0";
+            Console.WriteLine(itemname + " costs " + basecost + " gold " + "how much do you want");
             amount = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("do you want to buy" + itemname + "for" + amount);
+            cost = amount * basecost;
+            Console.WriteLine("do you want to buy " + amount + itemname + " for " + cost + "gold");
+            Console.WriteLine("1. buy");
+            Console.WriteLine("2. dont buy");
+            buy = Console.ReadLine();
+            if (buy == "1")
+            {
+                if (gold >= cost)
+                {
+                    gold = gold - cost;
+                    Console.WriteLine("You now have " + gold + " gold");
+                } 
+                else if (gold < cost)
+                {
+                    Console.WriteLine("you dont have enough gold");
+                    return;
+                }
+      
+            }
+            else if (buy == "2")
+            {
 
+            }
         }
 
 
