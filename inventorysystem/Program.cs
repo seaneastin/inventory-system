@@ -10,15 +10,54 @@ namespace inventorysystem
     {
         static void Main(string[] args)
         {
-            //*inventory inventory = new inventory(); //not sure what this does will ask the teacher
-            //* inventory.Menu(); //opens a menu i think
+          /*  Inventory inventory = new Inventory(); //not sure what this does will ask the teacher
+             inventory.Menu(); //opens a menu i think */
+            string name = "";
+            string choice = "";
+            Console.WriteLine("Enter name of party member 1:");
+            string nane = Console.ReadLine();
 
-            Character player = new Character("Sean");
+
+            while (choice != "1" && choice != "2" )
+            {
+                //displays menu
+                Console.WriteLine("\nChoose a job:");
+                Console.WriteLine("1: Knight");
+                Console.WriteLine("2: Wizard");
+                choice = Console.ReadLine();
+
+            }
+            Character player;
+            if (choice == "1")
+            {
+                player = new Knight(name);
+            }
+            else if (choice == "2")
+            {
+                player = new Wizard(name);
+            }
+            else
+            {
+                player = new Character(name);
+            }
+
             player.Print();
+            player.OpenInventory();
             Console.WriteLine(player.Name());
             Console.ReadLine();
-            Character dylan = new Character("dylan");
+            Wizard dylan = new Wizard("dylan");
+            Character Sarah = new Character("Sarah");
             dylan.Print();
+
+            while (choice != "1" && choice != "2")
+            {
+                //displays menu
+                Console.WriteLine("\nWhoose inventory:");
+                Console.WriteLine("1: " + player.Name());
+                Console.WriteLine("2: " + player.Name());
+                choice = Console.ReadLine();
+
+            }
 
             player.Experience = 30;
             player.Experience = player.Experience + 50;

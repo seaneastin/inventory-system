@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace inventorysystem
 {
-    class inventory
+    class Inventory
     {
         int damage = 10;
         float gold = 0.00f;
