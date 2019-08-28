@@ -38,7 +38,7 @@ namespace inventorysystem
                                                   {
                                                       unequipWeapon(); //reuses old code from unequip weapon option
                                                   } */
-        private attackitem mastersword = new attackitem("Master Sword", 999, 0);
+        private attackitem mastersword = new attackitem("Master Sword", 999, 0); 
         private attackitem dagger = new attackitem("Dagger", 20, 3);
         private attackitem sword = new attackitem("Sword", 40, 10);
         private attackitem warhammer = new attackitem("Warhammer", 50, 30);
@@ -136,6 +136,7 @@ namespace inventorysystem
             Console.WriteLine("4: greatsword");
             Console.WriteLine("5: go back");
             _weaponequipped = Console.ReadLine();
+            Console.WriteLine("this feature is being rewritten");
            /* if (_weaponequipped == "1")
             {
                 weaponequip("Dagger", 20);
@@ -214,7 +215,8 @@ namespace inventorysystem
             Console.WriteLine("2: heavy armor"); //
             Console.WriteLine("3: go back");
             Console.ReadLine();
-            if (_equippedarmor == "0")
+            Console.WriteLine("this feature is being rewritten");
+            /*if (_equippedarmor == "0")
             {
                 armoruneqip();
             }
@@ -229,7 +231,7 @@ namespace inventorysystem
             if (_equippedarmor == "3")
             {
 
-            }
+            }  */
 
         }
         public void shopmenu()

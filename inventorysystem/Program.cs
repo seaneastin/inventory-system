@@ -10,7 +10,12 @@ namespace inventorysystem
     {
         static void Main(string[] args)
         {
-          /*  Inventory inventory = new Inventory(); //not sure what this does will ask the teacher
+
+            Monster testmonster = new Monster("testmonster1", 100, 10); //for testing
+            Monster testmonster2 = new Monster("testmonster2", 100, 10); //for testing
+
+            return; //dont forget to delete this line everything above is for testing
+            /*  Inventory inventory = new Inventory(); //not sure what this does will ask the teacher
              inventory.Menu(); //opens a menu i think */
             string name = "";
             string choice = "";
@@ -72,63 +77,6 @@ namespace inventorysystem
 
 
             }
-
-            player.Experience = 30;
-            player.Experience = player.Experience + 50;
-            player.Experience++;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience += 40;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            player.Experience++;
-            dylan.Experience += 1;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience += 100;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            dylan.Experience++;
-            int[] testArray = new int[4];
-            testArray[0] = 1;
-            testArray[1] = 3;
-            testArray[2] = 5;
-            testArray[3] = 7;
-
-            int[] testArray2 = { 2, 4, 6, 8 };
-            string[] stringarray = new string[3];
-            Character[] party = { player, dylan, new Character("Like") }; //ask teacher about arrays
 
 
             Console.ReadKey();
