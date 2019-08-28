@@ -13,6 +13,21 @@ namespace inventorysystem
 
             Monster testmonster = new Monster("testmonster1", 100, 10); //for testing
             Monster testmonster2 = new Monster("testmonster2", 100, 10); //for testing
+            Monster testmonster3 = new Monster("testmonster3", 100, 10); //for testing
+            Monster testmonster4 = new Monster("testmonster4", 100, 10); //for testing
+            Monster[] goodteam = { testmonster, testmonster2 };
+            Monster[] badteam = { };
+            Encounter encounter = new Encounter(goodteam, badteam);
+            testmonster.Print();
+            testmonster2.Print();
+            encounter.print();
+            testmonster.fight(testmonster2);
+            testmonster.Print();
+            testmonster2.Print();
+
+            testmonster2.fight(testmonster);
+
+            Console.ReadLine();
 
             return; //dont forget to delete this line everything above is for testing
             /*  Inventory inventory = new Inventory(); //not sure what this does will ask the teacher
