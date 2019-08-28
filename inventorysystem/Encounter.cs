@@ -51,6 +51,64 @@ namespace inventorysystem
             //iterate through bad monsters
             //have the current bad monster fight the first good monster
         }
+        public void Start()
+        {
+            Console.WriteLine("/nEncounter Start!");
+            bool stillFighting = true;
+            //check if team 1 is allive
+            bool goodisAlive = true;
+            bool goodisDead = false;
+            bool badisAlive = true;
+            bool badisDead = false;
+            //check if team 2 is alive
+            for (int i = 0; i < _goodMonsters.Length; i++)
+            {
+                Monster currentMonster = _goodMonsters[i];
+                if (currentMonster.Health > 0)
+                {
+                    //our team is alive and not dead, break out
+                    //of the loop
+                    goodisAlive = true;
+                    break;
+                }
+                else if (currentMonster.Health < 0)
+                {
+                    //our team may be dead
+                    goodisAlive = false;
+                    break;
+                }
+                if (currentMonster.Health > 0)
+                {
+                    badisAlive = true;
+                    break;
+                }
+                else if (currentMonster.Health < 0)
+                {
+                    badisAlive = false;
+                    break;
+                }
+            }
+            while (stillFighting)
+            {
+
+
+                //if both teams are alive
+                if (goodisAlive && badisAlive)
+                {
+                    //fight
+                    stillFighting = true;
+                    BeginRound();
+                }
+                else
+                {
+                    //stop
+                    stillFighting = false;
+                }
+
+                //otherwise
+                //stop
+            }
+        }
 
     }
 
