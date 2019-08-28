@@ -26,7 +26,7 @@ namespace inventorysystem
         }
         public int GetDamage()
         {
-                return _damage;
+            return _damage;
         }
         public int Health
         {
@@ -65,6 +65,40 @@ namespace inventorysystem
             target.Health -= damage;
             // target's health - this monster's damage
             Console.WriteLine(getName() + " attacks! " + target.getName() + " Takes " + damage + "damage!");
+        }
+        public void fight(Monster[] targets)
+        {
+            if (Health <= 0)
+            {
+                return;
+            }
+            bool validInput = false;
+            while (!validInput)
+            
+            {
+                int choice = 0;
+                Console.WriteLine("/nWho will " + getName() + "fight? ");
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    Console.WriteLine(i + ":" + targets[i].getName());
+                }
+                choice = Convert.ToInt32(Console.ReadLine());
+                if (choice <=  targets.Length && choice >= 0)
+                {
+                    fight(targets[choice]);
+                    validInput = true;
+                }
+                
+
+                //print menu
+                //Iterate throguh targets
+                //print each option with a number
+                //Console.ReadLine to get user input
+                //convert the input to an integer
+                //check taht the choice is valid
+
+            }
+            
         }
     }
 }

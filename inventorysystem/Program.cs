@@ -16,7 +16,7 @@ namespace inventorysystem
             Monster testmonster3 = new Monster("testmonster3", 100, 10); //for testing
             Monster testmonster4 = new Monster("testmonster4", 100, 10); //for testing
             Monster[] goodteam = { testmonster, testmonster2 };
-            Monster[] badteam = { };
+            Monster[] badteam = { testmonster3, testmonster4 };
             Encounter encounter = new Encounter(goodteam, badteam);
             testmonster.Print();
             testmonster2.Print();
@@ -25,6 +25,8 @@ namespace inventorysystem
             testmonster.Print();
             testmonster2.Print();
 
+            encounter.BeginRound();
+         
             testmonster2.fight(testmonster);
 
             Console.ReadLine();
