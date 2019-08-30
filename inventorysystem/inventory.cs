@@ -17,37 +17,37 @@ namespace inventorysystem
         private string _equippedarmor = "0"; //tells game whatarmor is equipped
         private string _itemchoose = "0"; //items
         private int _itemDefense = 20;
-        private int[] weaponDamage = { 20, 40, 50, 60 }; //this array lists all the damage values for weapons
-                                                         /* if (_weaponequipped == "1")
-                                                  {
-                                                      weaponequip("Dagger", 20);
-                                                  }
-                                                  else if (_weaponequipped == "2")
-                                                  {
-                                                      weaponequip("Sword", 40);
-                                                  }
-                                                  else if (_weaponequipped == "3")
-                                                  {
-                                                      weaponequip("Warhammer", 50);
-                                                  }
-                                                  else if (_weaponequipped == "4")
-                                                  {
-                                                      weaponequip("GreatSword", 60);
-                                                  }
-                                                  else if (_weaponequipped == "0")
-                                                  {
-                                                      unequipWeapon(); //reuses old code from unequip weapon option
-                                                  } */
-        private attackitem mastersword = new attackitem("Master Sword", 999, 0); 
-        private attackitem dagger = new attackitem("Dagger", 20, 3);
-        private attackitem sword = new attackitem("Sword", 40, 10);
-        private attackitem warhammer = new attackitem("Warhammer", 50, 30);
-        private attackitem greatsword = new attackitem("GreatSword", 60, 50);
+        /* if (_weaponequipped == "1")
+ {
+     weaponequip("Dagger", 20);
+ }
+ else if (_weaponequipped == "2")
+ {
+     weaponequip("Sword", 40);
+ }
+ else if (_weaponequipped == "3")
+ {
+     weaponequip("Warhammer", 50);
+ }
+ else if (_weaponequipped == "4")
+ {
+     weaponequip("GreatSword", 60);
+ }
+ else if (_weaponequipped == "0")
+ {
+     unequipWeapon(); //reuses old code from unequip weapon option
+ } */
+        private Attackitem unarmed = new Attackitem("no weapon", 0, 0);
+        private Attackitem mastersword = new Attackitem("Master Sword", 999, 0); 
+        private Attackitem dagger = new Attackitem("Dagger", 20, 3);
+        private Attackitem sword = new Attackitem("Sword", 40, 10);
+        private Attackitem warhammer = new Attackitem("Warhammer", 50, 30);
+        private Attackitem greatsword = new Attackitem("GreatSword", 60, 50);
 
-        private attackitem[] weapons = new attackitem[3];
+        private Attackitem[] weapons;
         public Inventory()
         {
-            attackitem[] weaponBag = { sword, mastersword, dagger, sword, warhammer, greatsword};
+            Attackitem[] weaponBag = { unarmed , mastersword, dagger, sword, warhammer, greatsword};
             weapons = weaponBag;
         }
         //0 means no armor equipped
@@ -117,48 +117,46 @@ namespace inventorysystem
 
         public void equipWeapon()
         {
-            /*      if (equippedweapon == true)
-                  {
-                      Console.WriteLine("you already have a weapon equipped");
-                      return;
-                  }  may delete as you can only equip one weapon
-                  /*weapons to be added
+                   /*weapons to be added
                    * 0. unarmed
                    * 1. dagger
                    * 2. sword
                    * 3. warhammer
                    * 4. greatsword*/
-            Console.WriteLine("choose a weapon");
+             Console.WriteLine("choose a weapon");
             Console.WriteLine("0: unarmed");
-            Console.WriteLine("1: Dagger");
+            Console.WriteLine("1: dagger");
             Console.WriteLine("2: sword");
             Console.WriteLine("3: warhammer");
             Console.WriteLine("4: greatsword");
-            Console.WriteLine("5: go back");
+            Console.WriteLine("5: MasterSword");
+            Console.WriteLine("5: go back"); 
             _weaponequipped = Console.ReadLine();
             Console.WriteLine("this feature is being rewritten");
-           /* if (_weaponequipped == "1")
+             if (_weaponequipped == "1")
+             {
+                 weaponequip("Dagger", 20);
+             }
+             else if (_weaponequipped == "2")
+             {
+                 weaponequip("Sword", 40);
+             }
+             else if (_weaponequipped == "3")
+             {
+                 weaponequip("Warhammer", 50);
+             }
+             else if (_weaponequipped == "4")
+             {
+                 weaponequip("GreatSword", 60);
+             }
+             else if (_weaponequipped == "0")
+             {
+                 unequipWeapon(); //reuses old code from unequip weapon option
+             } 
+             else if (_weaponequipped == "5")
             {
-                weaponequip("Dagger", 20);
-            }
-            else if (_weaponequipped == "2")
-            {
-                weaponequip("Sword", 40);
-            }
-            else if (_weaponequipped == "3")
-            {
-                weaponequip("Warhammer", 50);
-            }
-            else if (_weaponequipped == "4")
-            {
-                weaponequip("GreatSword", 60);
-            }
-            else if (_weaponequipped == "0")
-            {
-                unequipWeapon(); //reuses old code from unequip weapon option
-            } */
 
-
+            }
 
 
 

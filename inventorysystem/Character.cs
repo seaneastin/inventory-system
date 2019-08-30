@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace inventorysystem
 {
-    class Character
+    class Character : Creature
     {
         private string _name = "";
         private int _xp = 0;
         private int _level = 1;
         private int[] _requiredXP = { 100, 300, 600, 1000 }; //required xp for leveling up
-
-        protected int _health = 100;
         protected int _mana = 100;
         protected int _strength = 5;
         protected int _dexterity = 5;
@@ -22,16 +20,23 @@ namespace inventorysystem
         private Inventory inventory = new Inventory();
 
 
-        public Character(string name)
+        public Character(string Getname)
         {
-            _name = name;
+            _name = Getname;
+            _health = 100;
+            _maxHealth = 100;
         }
 
-        public string Name()
+        public override string getName()
         {
             return _name;
         }
-        public void Print()
+        public override int GetDamage()
+        {
+            return _strength + inventory.GetItemDamage();
+            //return total damage
+        }
+        public override void Print()
         {
             Console.WriteLine(_name);
             Console.WriteLine("level " + _level);
@@ -48,19 +53,19 @@ namespace inventorysystem
         {
             inventory.Menu();
         }
-        public int Experience 
+        public int Experience
         {
             get
             {
                 return _xp;
-                
+
             }
             set
             {
                 _xp = value;
                 Console.WriteLine(_name + " gained experience and now has " + _xp);
                 if (_level <= _requiredXP.Length)
-                    {
+                {
                     if (_xp >= _requiredXP[_level - 1]) //subtracts 1 to make sure taht when you level up it uses the currrect slot
                     {
                         _level++;
@@ -69,5 +74,40 @@ namespace inventorysystem
                 }
             }
         }
+        public override void Fight(Creature[] targets)
+        {
+            if (Health <= 0)
+            {
+                return;
+            }
+            bool validInput = false;
+            while (!validInput)
+
+            {
+                int choice = 0;
+                Console.WriteLine("/nWho will " + getName() + "fight? ");
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    Console.WriteLine(i + ":" + targets[i].getName());
+                }
+                choice = Convert.ToInt32(Console.ReadLine());
+                if (choice <= targets.Length && choice >= 0)
+                {
+                    Fight(targets[choice]);
+                    validInput = true;
+                }
+
+
+                //print menu
+                //Iterate throguh targets
+                //print each option with a number
+                //Console.ReadLine to get user input
+                //convert the input to an integer
+                //check taht the choice is valid
+
+            }
+
+        }
     }
+    
 }

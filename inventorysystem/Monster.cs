@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace inventorysystem
 {
-    class Monster
+    class Monster : Creature
     {
         private string _name = "";
-        private int _health = 0;
-        private int _maxHealth = 0;
         private int _damage = 0;
 
         public Monster(string name, int health, int damage)
@@ -20,15 +18,15 @@ namespace inventorysystem
             _damage = damage;
             _maxHealth = health;
         }
-        public string getName()
+        public override string getName()
         {
             return _name;
         }
-        public int GetDamage()
+        public override int GetDamage()
         {
             return _damage;
         }
-        public int Health
+       /* public int Health
         {
             get
             {
@@ -47,14 +45,14 @@ namespace inventorysystem
                 }
 
             }
-        }
-        public void Print()
+        } */
+        public override void Print()
         {
             Console.WriteLine(_name);
             Console.WriteLine("Health: " + _health);
             Console.WriteLine("Damage: " + _damage);
         }
-        public void fight(Monster target)
+        public override void Fight(Creature target)
         {
             int damage = GetDamage();
             if (Health <= 0)
@@ -66,7 +64,7 @@ namespace inventorysystem
             // target's health - this monster's damage
             Console.WriteLine(getName() + " attacks! " + target.getName() + " Takes " + damage + "damage!");
         }
-        public void fight(Monster[] targets)
+        public override void Fight(Creature[] targets)
         {
             if (Health <= 0)
             {
@@ -85,7 +83,7 @@ namespace inventorysystem
                 choice = Convert.ToInt32(Console.ReadLine());
                 if (choice <=  targets.Length && choice >= 0)
                 {
-                    fight(targets[choice]);
+                    Fight(targets[choice]);
                     validInput = true;
                 }
                 

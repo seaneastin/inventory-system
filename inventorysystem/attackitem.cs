@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace inventorysystem
 {
-    class attackitem : Item
+    class Attackitem : Item
     {
         private int _damage;
         public int Damage
@@ -16,7 +16,7 @@ namespace inventorysystem
                 return _damage;
             }
         }
-        public attackitem(string newname, int newDamage, int newWeight)
+        public Attackitem(string newname, int newDamage, int newWeight)
         {
             Name = newname;
             _damage = newDamage;

@@ -11,27 +11,28 @@ namespace inventorysystem
         static void Main(string[] args)
         {
 
-            Monster testmonster = new Monster("testmonster1", 100, 10); //for testing
-            Monster testmonster2 = new Monster("testmonster2", 100, 10); //for testing
-            Monster testmonster3 = new Monster("testmonster3", 100, 10); //for testing
-            Monster testmonster4 = new Monster("testmonster4", 100, 10); //for testing
-            Monster[] goodteam = { testmonster, testmonster2 };
-            Monster[] badteam = { testmonster3, testmonster4 };
+           Monster testmonster = new Monster("testmonster1", 100, 10); //for testing
+            Monster testmonster2 = new Monster("testmonster2", 999999, 10); //for testing
+            Monster testmonster3 = new Monster("testmonster3", 100, 50); //for testing
+            Monster testmonster4 = new Monster("testmonster4", 100, 90); //for testing
+            Character testguy = new Knight("Sean");
+            Creature[] goodteam = { testmonster, testmonster2 };
+            Creature[] badteam = { testmonster3, testmonster4 , testguy };
             Encounter encounter = new Encounter(goodteam, badteam);
             testmonster.Print();
             testmonster2.Print();
             encounter.print();
-            testmonster.fight(testmonster2);
+            testmonster.Fight(testmonster2);
             testmonster.Print();
             testmonster2.Print();
 
             encounter.BeginRound();
          
-            testmonster2.fight(testmonster);
+            testmonster2.Fight(testmonster);
 
             Console.ReadLine();
 
-            return; //dont forget to delete this line everything above is for testing
+            return; //dont forget to delete this line everything above is for testing  commmented this out for going back to inventory */
             /*  Inventory inventory = new Inventory(); //not sure what this does will ask the teacher
              inventory.Menu(); //opens a menu i think */
             string name = "";
@@ -65,7 +66,7 @@ namespace inventorysystem
 
             player.Print();
 
-            Console.WriteLine(player.Name());
+            Console.WriteLine(player.getName());
             Console.ReadLine();
             Wizard dylan = new Wizard("dylan");
             Character Sarah = new Character("Sarah");
@@ -75,9 +76,9 @@ namespace inventorysystem
             {
                 //displays menu
                 Console.WriteLine("\nWhoose inventory:");
-                Console.WriteLine("1: " + player.Name());
-                Console.WriteLine("2: " + dylan.Name());
-                Console.WriteLine("3: " + Sarah.Name());
+                Console.WriteLine("1: " + player.getName());
+                Console.WriteLine("2: " + dylan.getName());
+                Console.WriteLine("3: " + Sarah.getName());
                 choice = Console.ReadLine();
                 if (choice == "1")
                 {
