@@ -164,10 +164,16 @@ namespace inventorysystem
 
         public void weaponequip(string weaponname, int damage)
         {
-            overweight = true;
-            Console.WriteLine(" you equipped a " + weaponname);
-            _itemdamage = damage;
-            Console.WriteLine("Damage: " + _itemdamage);
+            if (overweight == false)
+            {
+                Console.WriteLine(" you equipped a " + weaponname);
+                _itemdamage = damage;
+                Console.WriteLine("Damage: " + _itemdamage);
+            }
+            if (overweight == true)
+            {
+                Console.WriteLine("you have gone over your max weight limit");
+            }
         }
 
 

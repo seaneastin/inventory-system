@@ -13,7 +13,7 @@ namespace inventorysystem
         public virtual void Fight(Creature target)
         {
 
-            Console.WriteLine("you should not be seeing this line contact developer");
+            Console.WriteLine("you should not be seeing this line contact developer this is in class creature line 16");
         }
         public virtual void Fight(Creature[] targets)
         {

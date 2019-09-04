@@ -108,6 +108,18 @@ namespace inventorysystem
             }
 
         }
+        public override void Fight(Creature target)
+        {
+            int damage = GetDamage();
+            if (Health <= 0)
+            {
+                return;
+            }
+            // Subtract the damage from the target monster's health
+            target.Health -= damage;
+            // target's health - this monster's damage
+            Console.WriteLine(getName() + " attacks! " + target.getName() + " Takes " + damage + "damage!");
+        }
     }
     
 }
