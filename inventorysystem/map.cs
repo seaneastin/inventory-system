@@ -11,11 +11,13 @@ namespace inventorysystem
     {
         private int _currentLocation = 0; //ID of the current scene
         private Scene[] _sceneList; //List of all the scenes on the map
+        private Creature[] _players;
 
-        public Map(int startingSceneID, Scene[] scenes)
+        public Map(int startingSceneID, Scene[] scenes, Creature[] players)
         {
             _currentLocation = startingSceneID;
             _sceneList = scenes;
+            _players = players;
         }
 
         public void PrintCurrentScene()
@@ -69,6 +71,7 @@ namespace inventorysystem
                 Console.WriteLine("2: Save");
                 Console.WriteLine("3: Load");
                 Console.WriteLine("4: search");
+                Console.WriteLine("5: testcheckforcreaturesfunction");
                 //get the player's choice
                 choice = Console.ReadLine();
                 if (choice == "1")
@@ -85,7 +88,11 @@ namespace inventorysystem
                 }
                 else if (choice == "4")
                 {
-
+                    Search();
+                }
+                else if (choice == "5")
+                {
+                    CheckForCreatures();
                 }
             }
         }
@@ -110,6 +117,7 @@ namespace inventorysystem
                 //otherwise....
                 //...tell the player they cannot
             }
+            CheckForCreatures();
 
 
 
@@ -140,12 +148,29 @@ namespace inventorysystem
         }
         public void Search()
         {
+            CheckForCreatures();
             int destination = -1;
             //If the current scene is valid...
             if (_currentLocation >= 0 && _currentLocation < _sceneList.Length)
             {
                 //search the room
                 Console.WriteLine(_sceneList[_currentLocation].GetHidden());
+            }
+        }
+        public void CheckForCreatures()
+        {
+            //If the current location is valid...
+            if (_currentLocation >= 0 && _currentLocation < _sceneList.Length)
+            {
+                //...Check the current scene
+                Scene currentScene = _sceneList[_currentLocation];
+                if (currentScene.GetCleared() == false)
+                {
+                    //FIGHT!!!!
+                    Encounter encounter = new Encounter(_players, currentScene.GetEnemies());
+                    encounter.Start();
+
+                }
             }
         }
 
