@@ -16,6 +16,8 @@ namespace inventorysystem
         protected int _strength = 5;
         protected int _dexterity = 5;
         protected int _wisdom = 5;
+        protected int _defence;
+        protected int _damage;
 
         private Inventory inventory = new Inventory();
 
