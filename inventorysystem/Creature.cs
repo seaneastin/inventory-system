@@ -12,7 +12,7 @@ namespace inventorysystem
         protected int _maxHealth = 10;
         public virtual void Fight(Creature target)
         {
-
+            Console.WriteLine("you should not be seeing this line contact developer");
         }
         public virtual void Fight(Creature[] targets)
         {

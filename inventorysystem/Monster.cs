@@ -70,7 +70,10 @@ namespace inventorysystem
             {
                 return;
             }
-            bool validInput = false;
+            Random random = new Random();
+            int choice = random.Next(0, targets.Length - 1);
+            Fight(targets[choice]);
+          /*  bool validInput = false;
             while (!validInput)
             
             {
@@ -85,7 +88,7 @@ namespace inventorysystem
                 {
                     Fight(targets[choice]);
                     validInput = true;
-                }
+                }  */
                 
 
                 //print menu
@@ -95,7 +98,6 @@ namespace inventorysystem
                 //convert the input to an integer
                 //check taht the choice is valid
 
-            }
             
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace inventorysystem
 {
@@ -65,11 +66,26 @@ namespace inventorysystem
                 Console.WriteLine("\nMenue:");
                 Console.WriteLine("0: Exit");
                 Console.WriteLine("1: Travel");
+                Console.WriteLine("2: Save");
+                Console.WriteLine("3: Load");
+                Console.WriteLine("4: search");
                 //get the player's choice
                 choice = Console.ReadLine();
                 if (choice == "1")
                 {
                     Travel();
+                }
+                else if (choice == "2")
+                {
+                    Save("save.txt");
+                }
+                else if (choice == "3")
+                {
+                    Load("save.txt");
+                }
+                else if (choice == "4")
+                {
+
                 }
             }
         }
@@ -101,5 +117,37 @@ namespace inventorysystem
 
 
         }
+        public void Save(string path)
+        {
+            StreamWriter writer = File.CreateText(path);
+            //write to it the say we write
+            writer.WriteLine(CurrentSceneID);
+            //close it
+            writer.Close();
+        }
+        public void Load(string path)
+        {
+            if (File.Exists(path))
+            {
+                StreamReader reader = File.OpenText(path);
+                CurrentSceneID = Convert.ToInt32(reader.ReadLine());
+                reader.Close();
+            }
+            else
+            {
+                Console.WriteLine("Save file not found");
+            }
+        }
+        public void Search()
+        {
+            int destination = -1;
+            //If the current scene is valid...
+            if (_currentLocation >= 0 && _currentLocation < _sceneList.Length)
+            {
+                //search the room
+                Console.WriteLine(_sceneList[_currentLocation].GetHidden());
+            }
+        }
+
     }
 }
