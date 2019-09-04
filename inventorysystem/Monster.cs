@@ -71,7 +71,7 @@ namespace inventorysystem
                 return;
             }
             Random random = new Random();
-            int choice = random.Next(0, targets.Length - 1);
+            int choice = Program.random.Next(0, targets.Length);
             Fight(targets[choice]);
           /*  bool validInput = false;
             while (!validInput)

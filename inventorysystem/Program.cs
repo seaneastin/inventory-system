@@ -8,6 +8,8 @@ namespace inventorysystem
 {
     class Program
     {
+        public static Random random = new Random();
+
         static void Main(string[] args)
         {
             //0: Courtyard
@@ -45,16 +47,16 @@ namespace inventorysystem
 
 
             Console.WriteLine("test");
-            Monster testmonster = new Monster("goodmonster1", 99999, 10); //for testing
-            Monster testmonster2 = new Monster("goodmonster2", 999999, 1); //for testing
-            Monster testmonster3 = new Monster("badmonster3", 999999, 50); //for testing
-            Monster testmonster4 = new Monster("badmonster4", 999999, 90); //for testing
+            Monster testmonster = new Monster("goodmonster1", 400, 10); //for testing
+            Monster testmonster2 = new Monster("goodmonster2", 400, 1); //for testing
+            Monster testmonster3 = new Monster("badmonster3", 400, 50); //for testing
+            Monster testmonster4 = new Monster("badmonster4", 400, 90); //for testing
             Character testguy = new Knight("Sean");
             Creature[] goodteam = { testmonster, testmonster2, testguy };
             Creature[] badteam = { testmonster3, testmonster4};
             Encounter encounter = new Encounter(goodteam, badteam);
             encounter.print();
-
+            encounter.Start();
             encounter.BeginRound();
          
 
