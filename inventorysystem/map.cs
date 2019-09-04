@@ -54,5 +54,52 @@ namespace inventorysystem
                 }
             }
         }
+        public void Menu()
+        {
+            string choice = "";
+            while (choice != "0")
+            {
+                //let the player know hwere they are
+                PrintCurrentScene();
+                //print the menu
+                Console.WriteLine("\nMenue:");
+                Console.WriteLine("0: Exit");
+                Console.WriteLine("1: Travel");
+                //get the player's choice
+                choice = Console.ReadLine();
+                if (choice == "1")
+                {
+                    Travel();
+                }
+            }
+        }
+        public void Travel()
+        {
+            int destination = -1;
+            //If the current scene is valid...
+            if (_currentLocation >= 0 && _currentLocation < _sceneList.Length)
+            {
+                //ask the player where to go
+                destination = _sceneList[_currentLocation].ChooseExit();
+            }
+            //if the destination is on the map....
+            if (destination >= 0 && destination < _sceneList.Length)
+            {
+                //...Go there
+                CurrentSceneID = destination;
+            }
+            else
+            {
+                Console.WriteLine("There is nothing in that direction.");
+                //otherwise....
+                //...tell the player they cannot
+            }
+
+
+
+
+
+
+        }
     }
 }

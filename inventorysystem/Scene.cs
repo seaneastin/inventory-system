@@ -21,7 +21,9 @@ namespace inventorysystem
             _description = description;
             _north = northID;
             _south = southID;
+            _east = eastID;
             _west = westID;
+
         }
 
         public string GetName()
