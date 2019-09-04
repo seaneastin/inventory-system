@@ -10,8 +10,41 @@ namespace inventorysystem
     {
         static void Main(string[] args)
         {
+            //0: Courtyard
+            //1: castle Gate
+            //2: graveyard
+            //3: Village
+            //                                       N, S, E, W
+            Scene courtyard = new Scene("Courtyard", 1, 3, -1, 2 , "just a Courtyard exits are north");
+            Scene castleGate = new Scene("Castle Gate", -1, 0, -1, -1, "there is a massive gate at the entrance to the /ncastle. It appears to be locked. there is an exit tothe south.");
+            Scene graveyard = new Scene("Graveyard", -1, -1, 0, -1, "The graveyard is p. spooky. Nonetheless, you pay respects. There is an exit to the east.");
+            Scene village = new Scene("Village", 0, -1, -1, -1, "This is the village. THere are a bunch of building, I guess. There is an exit to the north.");
+            Scene[] scenes = { courtyard, castleGate, graveyard, village };
+            Map map = new Map(0, scenes);
 
-           Monster testmonster = new Monster("testmonster1", 100, 10); //for testing
+            map.PrintCurrentScene();
+            map.CurrentSceneID = 1;
+            map.PrintCurrentScene();
+            map.CurrentSceneID = 2;
+            map.PrintCurrentScene();
+            map.CurrentSceneID = 3;
+            map.PrintCurrentScene();
+            map.CurrentSceneID = 4;
+            map.PrintCurrentScene();
+            Console.ReadKey();
+
+            return;
+
+
+
+
+
+
+
+
+
+
+            Monster testmonster = new Monster("testmonster1", 100, 10); //for testing
             Monster testmonster2 = new Monster("testmonster2", 999999, 10); //for testing
             Monster testmonster3 = new Monster("testmonster3", 100, 50); //for testing
             Monster testmonster4 = new Monster("testmonster4", 100, 90); //for testing
