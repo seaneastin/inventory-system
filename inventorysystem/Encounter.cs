@@ -70,7 +70,7 @@ namespace inventorysystem
                         goodisAlive = true;
                         break;
                     }
-                    else if (currentMonster.Health < 0)
+                    else if (currentMonster.Health <= 0)
                     {
                         //our team may be dead
                         goodisAlive = false;
@@ -89,26 +89,36 @@ namespace inventorysystem
                         badisAlive = true;
                         break;
                     }
-                    else if (currentMonster.Health < 0)
+                    else if (currentMonster.Health <= 0)
                     {
                         //our team may be dead
                         badisAlive = false;
                         break;
+
                     }
                 }
 
                 //if both teams are alive
                 if (goodisAlive && badisAlive)
+                {
+                    //fight
+                    stillFighting = true;
+                    BeginRound();
+                }
+                if (!goodisAlive || !badisAlive)
+                {
+                    //stop
+                    stillFighting = false;
+                    if (goodisAlive)
                     {
-                        //fight
-                        stillFighting = true;
-                        BeginRound();
+                        for (int i = 0; i < _playerteam.Length; i++)
+                        {
+                            Character goodguy = _playerteam[i] as Character;
+                            Console.WriteLine("you won the battle");
+                            goodguy.experience += 1000000;
+                        }
                     }
-                    else
-                    {
-                        //stop
-                        stillFighting = false;
-                    }
+                }
                     print();
 
                     //otherwise

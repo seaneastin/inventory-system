@@ -10,6 +10,7 @@ namespace inventorysystem
     {
         protected int _health = 10;
         protected int _maxHealth = 10;
+        protected int _experience = 0;
         public virtual void Fight(Creature target)
         {
 
@@ -50,6 +51,17 @@ namespace inventorysystem
         public virtual void Print()
         {
 
+        }
+        public virtual int experience
+        {
+            get
+            {
+                return _experience;
+            }
+            set
+            {
+                _experience = value;
+            }
         }
     }
 }

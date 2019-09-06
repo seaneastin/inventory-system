@@ -72,6 +72,7 @@ namespace inventorysystem
                 Console.WriteLine("3: Load");
                 Console.WriteLine("4: search");
                 Console.WriteLine("5: testcheckforcreaturesfunction");
+                Console.WriteLine("6: inventory menu");
                 //get the player's choice
                 choice = Console.ReadLine();
                 if (choice == "1")
@@ -93,6 +94,10 @@ namespace inventorysystem
                 else if (choice == "5")
                 {
                     CheckForCreatures();
+                }
+                else if (choice == "6")
+                {
+
                 }
             }
         }
@@ -130,6 +135,13 @@ namespace inventorysystem
             StreamWriter writer = File.CreateText(path);
             //write to it the say we write
             writer.WriteLine(CurrentSceneID);
+            writer.WriteLine(_players.Length);
+            for (int i = 0; i < _players.Length; i++ )
+            {
+                Creature player = new Character("");
+                player = _players[i];
+           /* read after figuring out what is wrong     writer.WriteLine(player.getName); */
+            }
             //close it
             writer.Close();
         }
@@ -138,7 +150,7 @@ namespace inventorysystem
             if (File.Exists(path))
             {
                 StreamReader reader = File.OpenText(path);
-                CurrentSceneID = Convert.ToInt32(reader.ReadLine());
+                CurrentSceneID = Convert.ToInt32(reader.ReadLine()); 
                 reader.Close();
             }
             else

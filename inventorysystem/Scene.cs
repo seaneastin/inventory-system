@@ -43,6 +43,7 @@ namespace inventorysystem
             _west = westID;
             _hidden = hidden;
             _enemies = enemies;
+            if (_enemies.Length == 0)
             {
                 _cleared = true;
             }
