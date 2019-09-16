@@ -13,7 +13,8 @@ namespace inventorysystem
 
         static void Main(string[] args)
         {
-            string name = "";
+            SpellBook spellbook = new SpellBook(2);
+            string name = "";    //uncomment this later dont forget
             string choice = "";
             Console.WriteLine("Enter name of party member 1:");
             name = Console.ReadLine();
@@ -47,9 +48,51 @@ namespace inventorysystem
             Console.WriteLine(player.getName());
             Console.ReadLine();
             Wizard dylan = new Wizard("dylan");
-            dylan.Print();
+            dylan.Print();  
 
-            Monster testmonster = new Monster("goodmonster1", 4, 10); //for testing
+
+            Monster testmonster = new Monster("goodmonster1", 30, 10); //for testing
+            Console.WriteLine("Health: " + testmonster.Health);
+
+
+
+            spellbook.Page1(testmonster);
+
+            spellbook.Page2(testmonster);
+     
+
+            //create a metod and assign it to Page1
+            void Flame(Creature target)
+            {
+                target.Health -= 25;
+                Console.WriteLine("Flame deals 25 damage to " + target.getName() + "!");
+            }
+
+            void Heal(Creature target)
+            {
+                target.Health += 100;
+                Console.WriteLine(target.getName() + " has healed 100 hp and now has " + target.Health);
+            }
+
+            spellbook.Page1 = Flame;
+            Console.WriteLine("Health: " + testmonster.Health);
+            spellbook.Page2 = Heal;
+            spellbook.Page1 += Heal;
+            Console.WriteLine("Health: " + testmonster.Health);
+
+            spellbook.Page1(testmonster);
+            Console.WriteLine("Health: " + testmonster.Health);
+            spellbook.Page2(testmonster);
+            Console.WriteLine("Health: " + testmonster.Health);
+
+            
+
+            spellbook.book[0] = Flame;
+            spellbook.book[1] = Heal;
+            spellbook.book[0](testmonster);
+             Console.ReadKey();
+            return; //for testing purposes
+
             Monster testmonster2 = new Monster("goodmonster2", 4, 1); //for testing
             Monster testmonster3 = new Monster("badmonster3", 4, 50); //for testing
             Monster testmonster4 = new Monster("badmonster4", 4, 90); //for testing
